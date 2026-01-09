@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://chatgpt.com/c/6960a7ff-d25c-8333-bc82-bc707860c660 -->
+<html lang="en-US" data-build="prod-86272c7b3b07c9df45bcef6536a028b08c1b60c0" data-seq="4075671" dir="ltr" class="light" data-chat-theme="default" style="color-scheme: light;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Good Morning 🌸</title><style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(#fff1f3, #ffeef8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .game-box {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        width: 320px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 30px;
+        background: #ff6f91;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background: #ff4f7a;
+    }
+
+    .heart {
+        font-size: 40px;
+        cursor: pointer;
+        animation: float 2s infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0); }
+    }
+
+    .hidden { display: none; }
+
+    .scripture { font-style: italic; margin-top: 15px; }
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="worship.mp3" type="audio/mpeg">
+</audio>
+
+<div class="game-box">
+    <h1>Good Morning ☀️</h1>
+    <p id="message">Tap the heart to gather strength for today</p>
+
+    <div id="heartArea">
+        <div id="heart" class="heart">❤️</div>
+    </div>
+
+    <p id="score">Strength collected: 0</p>
+    <button id="finish" class="hidden">Finish</button>
+
+    <div id="ending" class="hidden">
+        <h2>You Did It ✨</h2>
+        <p class="scripture">
+            “Be strong and courageous. Do not be afraid; do not be discouraged,
+            for the Lord your God will be with you wherever you go.”
+            <br><strong>— Joshua 1:9</strong>
+        </p>
+        <p>
+            Today will be lighter.  
+            Your fast is seen.  
+            Your strength is growing 💕
+        </p>
+    </div>
+</div>
+
+<script>
+
+let score = 0;
+const heart = document.getElementById('heart');
+const scoreText = document.getElementById('score');
+const message = document.getElementById('message');
+const finishBtn = document.getElementById('finish');
+const ending = document.getElementById('ending');
+
+const funnyMessages = [
+    "Strength unlocked 💪",
+    "Heaven noticed that tap 😇",
+    "Spiritual calories burned 🔥",
+    "Faith level increased ✨",
+    "God smiled just now 😊"
+];
+
+heart.addEventListener("click", () => {
+    score++;
+    scoreText.textContent = "Strength collected: " + score;
+    message.textContent = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+
+    if (score >= 5) {
+        heart.classList.add("hidden");
+        finishBtn.classList.remove("hidden");
+        message.textContent = "Your strength is full 🌸";
+    }
+});
+
+finishBtn.addEventListener("click", () => {
+    finishBtn.classList.add("hidden");
+    ending.classList.remove("hidden");
+});
+</script>
+
+</body>
+</html>
